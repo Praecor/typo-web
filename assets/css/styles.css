@@ -1,0 +1,36 @@
+/* styles.css */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  text-align: center;
+}
+
+#gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2rem;
+}
+
+#gallery img {
+  margin: 0.5rem;
+  border: 2px solid #ddd;
+  border-radius: 5px;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  header, footer {
+      padding: 0.5rem;
+  }
+
+  #gallery img {
+      width: 100%;
+  }
+}
