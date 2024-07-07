@@ -1,20 +1,83 @@
-/* styles.css */
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: #f8f9fa;
+  font-family: 'Inter', sans-serif;
+  margin: 0; /* Ensure no margin around the body */
+  padding-top: 60px; /* Add padding top to prevent content from hiding behind the fixed navbar */
 }
 
-header, footer {
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   background-color: #f8f9fa;
   padding: 1rem 0;
   text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a slight shadow for better visibility */
+  z-index: 1000; /* Ensure the header is on top of other content */
 }
 
 .container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 90vw;
   margin: 0 auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f89c35; /* Color for the logo text */
+  text-decoration: none;
+}
+
+.logo:hover {
+  text-decoration: underline; /* Underline effect on hover */
+}
+
+#welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+  min-height: 80vh; /* Ensure the section is a bit smaller than full screen height */
+}
+
+.welcome-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.text-content h2 {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.text-content h1 {
+  font-size: 4rem; /* Make the main heading much larger */
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.image-placeholder {
+  width: 300px;
+  height: 300px;
+  border: 2px dashed #ccc; /* Bordered box placeholder */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 main {
@@ -38,16 +101,25 @@ main {
 }
 
 .gallery-buttons button {
-  padding: 0.5rem 1rem;
+  padding: 1rem 2rem; /* Even more padding for larger buttons */
   border: none;
-  background-color: #3498db;
-  color: #fff;
+  background-color: transparent; /* Text only */
+  color: #999; /* Dark gray text */
   cursor: pointer;
   border-radius: 5px;
+  font-size: 2rem; /* Larger font size */
+  font-weight: bold; /* Bold text */
+  text-decoration: none; /* No underline */
+  transition: color 0.3s ease; /* Smooth transition for text color on hover */
+  text-transform: uppercase; /* Uppercase text */
 }
 
 .gallery-buttons button:hover {
-  background-color: #2980b9;
+  color: #3498db; /* Darker text color on hover */
+}
+
+.gallery-buttons button.active {
+  color: #3498db; /* Active state color */
 }
 
 .grid {
@@ -58,6 +130,19 @@ main {
 
 .grid-item {
   perspective: 1000px; /* Allows the 3D effect */
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.grid-item.fade-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
 
 .card {
@@ -80,7 +165,7 @@ main {
   width: 100%;
   height: 100%;
   backface-visibility: hidden; /* Hides the back side during the flip */
-  border-radius: 5px;
+  border-radius: 20px;
 }
 
 .card-front {
@@ -107,7 +192,7 @@ main {
 }
 
 .title {
-  font-size: 1.2rem;
+  font-size: 2rem;
   padding: 1rem;
   text-align: center;
 }
@@ -123,6 +208,15 @@ main {
   .grid {
       grid-template-columns: repeat(1, 1fr);
   }
+
+  .text-content h1 {
+    font-size: 2.5rem; /* Smaller font size for mobile devices */
+  }
+
+  .image-placeholder {
+    width: 200px;
+    height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -132,5 +226,24 @@ main {
 
   .container {
       width: 95%;
+  }
+
+  #welcome {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    height: auto;
+    margin-top: 1rem;
+  }
+
+  .text-content h1 {
+    font-size: 2rem;
+  }
+
+  .text-content h2 {
+    font-size: 0.75rem;
   }
 }

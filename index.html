@@ -7,29 +7,35 @@
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="container">
-            <h1>Your Portfolio</h1>
-            <nav>
-                <!-- Navigation links -->
-            </nav>
+            <div class="navbar">
+                <a href="#" class="logo">Typo</a>
+            </div>
         </div>
     </header>
 
     <main>
-        <section id="about" class="container">
-            <h2>About</h2>
-            <p>Your about section content.</p>
+        <section id="welcome" class="container">
+            <div class="welcome-content">
+                <div class="text-content">
+                    <h2>Idejne Rešitve v Grafičnem Oblikovanju</h2>
+                    <h1>Ko dizajn pripoveduje zgodbo ...</h1>
+                </div>
+                <div class="image-placeholder">
+                    <!-- Placeholder for the image on the right -->
+                </div>
+            </div>
         </section>
 
         <section id="gallery" class="container">
-            <h2>Gallery</h2>
             <div class="gallery-buttons">
-                <button data-filter="all">All</button>
-                <button data-filter="vis">Vis</button>
-                <button data-filter="des">Des</button>
+                <button data-filter="all">Vsi projekti</button>
+                <button data-filter="viz">Vizualna identiteta</button>
+                <button data-filter="des">Grafično oblikovanje</button>
             </div>
             <div id="gallery-container" class="grid">
                 <!-- Gallery items will be inserted here by JavaScript -->
