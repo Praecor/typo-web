@@ -3,28 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typo</title>
+    <title>Your Portfolio</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
     <header>
-        <h1>Typo</h1>
+        <div class="container">
+            <h1>Your Portfolio</h1>
+            <nav>
+                <!-- Navigation links -->
+            </nav>
+        </div>
     </header>
 
-    <section id="about">
-        <h2>About</h2>
-        <p>Your about section content.</p>
-    </section>
+    <main>
+        <section id="about" class="container">
+            <h2>About</h2>
+            <p>Your about section content.</p>
+        </section>
 
-    <section id="gallery">
-        <h2>Gallery</h2>
-
-    </section>
+        <section id="gallery" class="container">
+            <h2>Gallery</h2>
+            <div class="gallery-buttons">
+                <button data-filter="all">All</button>
+                <button data-filter="vis">Vis</button>
+                <button data-filter="des">Des</button>
+            </div>
+            <div id="gallery-container" class="grid">
+                <!-- Gallery items will be inserted here by JavaScript -->
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 Typo.si. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 Your Name. All rights reserved.</p>
+        </div>
     </footer>
 
     <script src="assets/js/scripts.js"></script>

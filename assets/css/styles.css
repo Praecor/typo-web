@@ -7,30 +7,130 @@ body {
 
 header, footer {
   background-color: #f8f9fa;
-  padding: 1rem;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+main {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+#about {
   text-align: center;
 }
 
 #gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding: 2rem;
+  text-align: center;
 }
 
-#gallery img {
-  margin: 0.5rem;
-  border: 2px solid #ddd;
+.gallery-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.gallery-buttons button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
   border-radius: 5px;
 }
 
+.gallery-buttons button:hover {
+  background-color: #2980b9;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.grid-item {
+  perspective: 1000px; /* Allows the 3D effect */
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* Ensures the card is square */
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* Hides the back side during the flip */
+  border-radius: 5px;
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd;
+}
+
+.card-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-back {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #3498db;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.title {
+  font-size: 1.2rem;
+  padding: 1rem;
+  text-align: center;
+}
+
 /* Media Queries for Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 1200px) {
+  .grid {
+      grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+      grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
   header, footer {
-      padding: 0.5rem;
+      padding: 0.5rem 0;
   }
 
-  #gallery img {
-      width: 100%;
+  .container {
+      width: 95%;
   }
 }
