@@ -1,16 +1,16 @@
-/* typography.css */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 
 body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    color: #333;
+    color: var(--color-text);
 }
 
 h1, h2, h3, h4, h5, h6 {
     margin: 1.5rem 0 1rem;
     line-height: 1.2;
     font-weight: 600;
+    color: var(--color-heading);
 }
 
 p {
@@ -18,10 +18,11 @@ p {
 }
 
 a {
-    color: #3498db;
+    color: var(--color-primary);
     text-decoration: none;
 }
 
 a:hover {
     text-decoration: underline;
+    color: var(--color-link-hover);
 }

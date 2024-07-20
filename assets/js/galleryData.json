@@ -2,229 +2,267 @@
   {
     "id": 1,
     "category": "des",
-    "title": "Fotoklub Črnomelj",
+    "client": "Fotoklub Črnomelj",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_arhitektura.jpg"
   },
   {
     "id": 2,
     "category": "des",
-    "title": "Čebelarstvo Muller d.o.o.",
+    "client": "Čebelarstvo Muller d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_beetox_embalaza.jpg"
   },
   {
     "id": 3,
     "category": "des",
-    "title": "KC Semič",
+    "client": "KC Semič",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_bolnisnica.jpg"
   },
   {
     "id": 4,
     "category": "des",
-    "title": "Kmetijska Zadruga Metlika z.o.o.",
+    "client": "Kmetijska Zadruga Metlika z.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_cenik.jpg"
   },
   {
     "id": 5,
     "category": "des",
-    "title": "Madoja d.o.o.",
+    "client": "Madoja d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_golf.jpg"
   },
   {
     "id": 6,
     "category": "des",
-    "title": "Hopes Bivouac s.p.",
+    "client": "Hopes Bivouac s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_hopes_bivouac.jpg"
   },
   {
     "id": 7,
     "category": "des",
-    "title": "Madoja d.o.o.",
+    "client": "Madoja d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_kaval.jpg"
   },
   {
     "id": 8,
     "category": "des",
-    "title": "KC Semič",
+    "client": "KC Semič",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_kongerija.jpg"
   },
   {
     "id": 9,
     "category": "des",
-    "title": "KC Semič",
+    "client": "KC Semič",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_kulturni_praznik.jpg"
   },
   {
     "id": 10,
     "category": "des",
-    "title": "Vinska klet Metlika",
+    "client": "Vinska klet Metlika",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_poet.jpg"
   },
   {
     "id": 11,
     "category": "des",
-    "title": "KC Semič",
+    "client": "KC Semič",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_poletni_vecer.jpg"
   },
   {
     "id": 12,
     "category": "des",
-    "title": "Vinska klet Metlika",
+    "client": "Vinska klet Metlika",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_portugalka.jpg"
   },
   {
     "id": 13,
     "category": "des",
-    "title": "Vinska klet Metlika",
+    "client": "Vinska klet Metlika",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_prevc.jpg"
   },
   {
     "id": 14,
     "category": "des",
-    "title": "Proslad d.o.o.",
+    "client": "Proslad d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_proslad_embalaza.jpg"
   },
   {
     "id": 15,
     "category": "des",
-    "title": "Rdeči križ Slovenije",
+    "client": "Rdeči križ Slovenije",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_prva_pomoc.jpg"
   },
   {
     "id": 16,
     "category": "des",
-    "title": "Rdeči križ Slovenije",
+    "client": "Rdeči križ Slovenije",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_prva_pomoc_obrazi.jpg"
   },
   {
     "id": 17,
     "category": "des",
-    "title": "Fotoklub Črnomelj",
+    "client": "Fotoklub Črnomelj",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_teden_mobilnosti.jpg"
   },
   {
     "id": 18,
     "category": "des",
-    "title": "Vizir d.o.o.",
+    "client": "Vizir d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_vizir.jpg"
   },
   {
     "id": 19,
     "category": "des",
-    "title": "Vizir d.o.o.",
+    "client": "Vizir d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_vizir_nalepke.jpg"
   },
   {
     "id": 20,
     "category": "viz",
-    "title": "Komunala Črnomelj",
+    "client": "Komunala Črnomelj",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_center_ponovne_uporabe.jpg"
   },
   {
     "id": 21,
     "category": "viz",
-    "title": "Beti d.d.",
+    "client": "Beti d.d.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_dycare.jpg"
   },
   {
     "id": 22,
     "category": "viz",
-    "title": "GIA salon",
+    "client": "GIA salon",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_gia.jpg"
   },
   {
     "id": 23,
     "category": "viz",
-    "title": "Hopes Bivouac s.p.",
+    "client": "Hopes Bivouac s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_hopes_bivouac.jpg"
   },
   {
     "id": 24,
     "category": "viz",
-    "title": "Nogometna zveza Slovenije",
+    "client": "Nogometna zveza Slovenije",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_invest_connect.jpg"
   },
   {
     "id": 25,
     "category": "viz",
-    "title": "Komunala Črnomelj",
+    "client": "Komunala Črnomelj",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_komunala_crnomelj_dopisni.jpg"
   },
   {
     "id": 26,
     "category": "viz",
-    "title": "Komunala Črnomelj",
+    "client": "Komunala Črnomelj",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_komunala_crnomelj_logo.jpg"
   },
   {
     "id": 27,
     "category": "viz",
-    "title": "LSI tech d.o.o.",
+    "client": "LSI tech d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_lsitecth.jpg"
   },
   {
     "id": 28,
     "category": "viz",
-    "title": "Perlin Adventures s.p.",
+    "client": "Perlin Adventures s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_perlin.jpg"
   },
   {
     "id": 29,
     "category": "viz",
-    "title": "Proslad d.o.o.",
+    "client": "Proslad d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_proslad.jpg"
   },
   {
     "id": 30,
     "category": "viz",
-    "title": "Typo, Sanja Hadjur s.p.",
+    "client": "Typo, Sanja Hadjur s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_typo.jpg"
   },
   {
     "id": 31,
     "category": "viz",
-    "title": "Typo, Sanja Hadjur s.p.",
+    "client": "Typo, Sanja Hadjur s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_typo_two.jpg"
   },
   {
     "id": 32,
     "category": "viz",
-    "title": "Vizir d.o.o.",
+    "client": "Vizir d.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_vizir.jpg"
   },
   {
     "id": 33,
     "category": "des",
-    "title": "Proslad d.o.o",
+    "client": "Proslad d.o.o",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_proslad_two.jpg"
   },
   {
     "id": 34,
     "category": "des",
-    "title": "Ana Residenca",
+    "client": "Ana Residenca",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_ana_residenca.jpg"
   },
   {
     "id": 35,
     "category": "des",
-    "title": "Kmetijska zadruga Metlika z.o.o.",
+    "client": "Kmetijska zadruga Metlika z.o.o.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_kzm_katalogi.jpg"
   },
   {
     "id": 36,
     "category": "des",
-    "title": "KC Semič",
+    "client": "KC Semič",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/des_kcsemic.jpg"
   },
   {
     "id": 37,
     "category": "viz",
-    "title": "GIA salon",
+    "client": "GIA salon",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_gia_ikone.jpg"
   },
   {
     "id": 38,
     "category": "viz",
-    "title": "Hope's Bivouac s.p.",
+    "client": "Hope's Bivouac s.p.",
+    "title": "Lorem Product",
     "image": "assets/images/gallery/viz_merino.jpg"
   }
 ]
