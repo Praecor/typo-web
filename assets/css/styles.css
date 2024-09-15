@@ -1,4 +1,4 @@
-/* Variables */
+/*==================== Variables ====================*/
 :root {
   /* Turquoise */
   --color-primary: #4BBFA7;
@@ -40,7 +40,7 @@
   --spacing-unit: 1rem;
 }
 
-/* Reset */
+/*==================== Reset Styles ====================*/
 * {
   margin: 0;
   padding: 0;
@@ -51,6 +51,20 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/*==================== Base Styles ====================*/
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 80px; /* Height of the fixed navbar */
+  scroll-behavior: smooth;
 }
 
 a {
@@ -65,21 +79,13 @@ a:focus {
   outline: none;
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding-top: 80px;
-  scroll-behavior: smooth;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
+/*==================== Typography ====================*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   color: var(--color-heading);
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -105,14 +111,14 @@ h4 {
   font-size: 1.25rem;
 }
 
-/* Container */
+/*==================== Layout ====================*/
 .container {
-  max-width: 1200px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--spacing-unit);
 }
 
-/* Header */
+/*==================== Header ====================*/
 header {
   position: fixed;
   top: 0;
@@ -136,9 +142,16 @@ header {
   color: var(--color-primary-dark);
 }
 
+/*==================== Navigation ====================*/
 .navbar nav {
-  display: flex;
-  gap: var(--spacing-unit);
+  display: none;
+  flex-direction: column;
+  background-color: var(--color-background);
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 400px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar nav a {
@@ -169,7 +182,7 @@ header {
 }
 
 .nav-toggle {
-  display: none;
+  display: block;
   background: none;
   border: none;
   cursor: pointer;
@@ -201,17 +214,16 @@ header {
   top: 8px;
 }
 
-/* Main Content */
+/*==================== Main Content ====================*/
 main {
   flex: 1;
 }
 
+/*==================== Sections ====================*/
+
 /* Welcome Section */
 #welcome {
   padding: 4rem 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   text-align: center;
 }
 
@@ -222,25 +234,16 @@ main {
   gap: 2rem;
 }
 
-.text-content {
-  flex: 1;
-}
-
-.text-content h2 {
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin-bottom: 1rem;
-}
-
-.text-content h1 {
-  font-size: 3rem;
-  color: var(--color-heading);
-  margin-bottom: 1rem;
+.welcome-title-image,
+.welcome-main-image {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
 }
 
 .image-placeholder {
   width: 100%;
-  max-width: 1200px; /* Adjust the max-width as needed */
+  max-width: 1200px;
 }
 
 .image-placeholder img {
@@ -258,6 +261,7 @@ main {
 
 .gallery-buttons {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 2rem;
@@ -307,7 +311,7 @@ main {
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -370,7 +374,7 @@ main {
 
 .about-content {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 2rem;
 }
 
@@ -427,7 +431,7 @@ main {
   margin-top: 2rem;
 }
 
-/* Floating Button and Info Panel */
+/*==================== Floating Button and Info Panel ====================*/
 .floating-button {
   position: fixed;
   left: 0;
@@ -478,7 +482,7 @@ main {
   color: white;
 }
 
-/* Footer */
+/*==================== Footer ====================*/
 footer {
   background-color: var(--color-primary-dark);
   color: white;
@@ -487,9 +491,9 @@ footer {
 
 footer .container {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 footer p {
@@ -510,7 +514,7 @@ footer .social-links a:hover {
   color: var(--color-accent);
 }
 
-/* Accessibility Focus Styles */
+/*==================== Accessibility Styles ====================*/
 a:focus,
 button:focus,
 .floating-button:focus {
@@ -518,64 +522,68 @@ button:focus,
   outline-offset: 2px;
 }
 
-/* Media Queries */
-@media (max-width: 768px) {
-  .navbar nav {
-      display: none;
-      flex-direction: column;
-      background-color: var(--color-background);
-      position: absolute;
-      top: 100%;
-      right: 0;
-      width: 200px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/*==================== Media Queries ====================*/
+
+/* Medium screens (min-width: 768px) */
+@media (min-width: 768px) {
+  /* Container */
+  .container {
+    max-width: 1200px;
   }
 
-  .navbar nav.active {
-      display: flex;
+  /* Navigation */
+  .navbar nav {
+    display: flex;
+    flex-direction: row;
+    position: static;
+    background-color: transparent;
+    box-shadow: none;
   }
 
   .nav-toggle {
-      display: block;
+    display: none;
   }
 
+  /* Welcome Section */
   .welcome-content {
-      flex-direction: column;
+    flex-direction: column;
   }
 
-  .text-content {
-      text-align: center;
+  .welcome-title-image,
+  .welcome-main-image {
+    max-width: 1200px;
   }
 
+  /* Gallery Buttons */
   .gallery-buttons {
-      flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
+  /* About Section */
   .about-content {
-      flex-direction: column;
+    flex-direction: row;
+  }
+
+  /* Footer */
+  footer .container {
+    flex-direction: row;
+    justify-content: space-between;
   }
 }
 
-@media (max-width: 480px) {
-  h1 {
-      font-size: 2rem;
+/* Large screens (min-width: 1024px) */
+@media (min-width: 1024px) {
+  /* Increase container max-width */
+  .container {
+    max-width: 1400px;
   }
 
-  h2 {
-      font-size: 1.5rem;
+  /* Welcome Images */
+  .welcome-title-image {
+    max-width: 1000px;
   }
 
-  .floating-button {
-      width: 50px;
-      height: 50px;
-  }
-
-  .info-panel {
-      width: 180px;
-      left: -200px;
-  }
-
-  .info-panel.active {
-      left: 50px;
+  .welcome-main-image {
+    max-width: 1200px;
   }
 }
