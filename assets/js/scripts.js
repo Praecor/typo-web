@@ -14,7 +14,7 @@ document.addEventListener( 'DOMContentLoaded', async () => {
 
     /*==================== State ====================*/
     let galleryItems = [];
-    const colorClasses = [ 'primary', 'secondary', 'accent', 'anthracite', 'blue' ];
+    const colorClasses = [ 'primary', 'accent', 'anthracite', 'blue' ];
     let currentColorIndex = 0;
 
     /*==================== Utility Functions ====================*/

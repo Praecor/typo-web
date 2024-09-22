@@ -1,25 +1,19 @@
 [
   {
-    "id": 1,
-    "category": "des",
-    "client": "Fotoklub Črnomelj",
-    "title": "Plakat",
-    "image": "assets/images/gallery/des_arhitektura.jpg"
-  },
-  {
-    "id": 2,
-    "category": "des",
-    "client": "Čebelarstvo Muller d.o.o.",
-    "title": "Embalaža",
-    "image": "assets/images/gallery/des_beetox_embalaza.jpg"
-  },
-  {
-    "id": 3,
+    "id": 9,
     "category": "des",
     "client": "KC Semič",
-    "title": "Plakat",
-    "image": "assets/images/gallery/des_bolnisnica.jpg"
+    "title": "Ilustracija",
+    "image": "assets/images/gallery/des_kulturni_praznik.jpg"
   },
+  {
+    "id": 24,
+    "category": "viz",
+    "client": "Nogometna zveza Slovenije",
+    "title": "Vizualna podoba",
+    "image": "assets/images/gallery/viz_invest_connect.jpg"
+  },
+
   {
     "id": 4,
     "category": "des",
@@ -28,11 +22,19 @@
     "image": "assets/images/gallery/des_cenik.jpg"
   },
   {
-    "id": 5,
+    "id": 16,
     "category": "des",
-    "client": "Madoja d.o.o.",
-    "title": "Igralne karte",
-    "image": "assets/images/gallery/des_golf.jpg"
+    "client": "Rdeči križ Slovenije",
+    "title": "Priročnik",
+    "image": "assets/images/gallery/des_prva_pomoc_obrazi.jpg"
+  },
+
+  {
+    "id": 10,
+    "category": "des",
+    "client": "Vinska klet Metlika",
+    "title": "Embalaža",
+    "image": "assets/images/gallery/des_poet.jpg"
   },
   {
     "id": 6,
@@ -55,19 +57,14 @@
     "title": "Knjižna kazalka",
     "image": "assets/images/gallery/des_kongerija.jpg"
   },
+
+
   {
-    "id": 9,
+    "id": 2,
     "category": "des",
-    "client": "KC Semič",
-    "title": "Ilustracija",
-    "image": "assets/images/gallery/des_kulturni_praznik.jpg"
-  },
-  {
-    "id": 10,
-    "category": "des",
-    "client": "Vinska klet Metlika",
+    "client": "Čebelarstvo Muller d.o.o.",
     "title": "Embalaža",
-    "image": "assets/images/gallery/des_poet.jpg"
+    "image": "assets/images/gallery/des_beetox_embalaza.jpg"
   },
   {
     "id": 11,
@@ -104,12 +101,14 @@
     "title": "Plakat",
     "image": "assets/images/gallery/des_prva_pomoc.jpg"
   },
+
+
   {
-    "id": 16,
+    "id": 5,
     "category": "des",
-    "client": "Rdeči križ Slovenije",
-    "title": "Priročnik",
-    "image": "assets/images/gallery/des_prva_pomoc_obrazi.jpg"
+    "client": "Madoja d.o.o.",
+    "title": "Igralne karte",
+    "image": "assets/images/gallery/des_golf.jpg"
   },
   {
     "id": 17,
@@ -160,20 +159,7 @@
     "title": "Vizualna podoba",
     "image": "assets/images/gallery/viz_hopes_bivouac.jpg"
   },
-  {
-    "id": 24,
-    "category": "viz",
-    "client": "Nogometna zveza Slovenije",
-    "title": "Vizualna podoba",
-    "image": "assets/images/gallery/viz_invest_connect.jpg"
-  },
-  {
-    "id": 25,
-    "category": "viz",
-    "client": "Komunala Črnomelj",
-    "title": "Vizualna podoba",
-    "image": "assets/images/gallery/viz_komunala_crnomelj_dopisni.jpg"
-  },
+
   {
     "id": 26,
     "category": "viz",
@@ -218,7 +204,7 @@
   },
   {
     "id": 34,
-    "category": "viz",
+    "category": "des",
     "client": "Ana Residenca",
     "title": "Ilustracija",
     "image": "assets/images/gallery/des_ana_residenca.jpg"
@@ -237,18 +223,67 @@
     "title": "Plakat",
     "image": "assets/images/gallery/des_kcsemic.jpg"
   },
-  {
-    "id": 37,
-    "category": "viz",
-    "client": "GIA salon",
-    "title": "Ilustracija",
-    "image": "assets/images/gallery/viz_gia_ikone.jpg"
-  },
+
   {
     "id": 38,
-    "category": "viz",
+    "category": "des",
     "client": "Hope's Bivouac s.p.",
     "title": "Ilustracija",
     "image": "assets/images/gallery/viz_merino.jpg"
+  },
+  {
+    "id": 39,
+    "category": "des",
+    "client": "Igralnica Mali svet",
+    "title": "Plakat",
+    "image": "assets/images/gallery/des_mali_svet_plakat.jpg"
+  },
+  {
+    "id": 40,
+    "category": "des",
+    "client": "Omnibus",
+    "title": "Ilustracija",
+    "image": "assets/images/gallery/des_omnibus_ilustracija.jpg"
+  },
+  {
+    "id": 42,
+    "category": "des",
+    "client": "Vina Kordič",
+    "title": "etiketa",
+    "image": "assets/images/gallery/des_vina_kordic.jpg"
+  },
+  {
+    "id": 43,
+    "category": "des",
+    "client": "Kmetijska zadruga Metlika z.o.o.",
+    "title": "Mesečni katalogi",
+    "image": "assets/images/gallery/des_kzm_katalog_mesecni.jpg"
+  },
+  {
+    "id": 44,
+    "category": "viz",
+    "client": "Vina Kordič",
+    "title": "Vizualna podoba",
+    "image": "assets/images/gallery/viz_kordic.jpg"
+  },
+  {
+    "id": 45,
+    "category": "des",
+    "client": "Igralnica Mali svet",
+    "title": "Ilustracija",
+    "image": "assets/images/gallery/des_mali_svet_ikone.jpg"
+  },
+  {
+    "id": 46,
+    "category": "viz",
+    "client": "Komunala Črnomelj",
+    "title": "Vizualna podoba",
+    "image": "assets/images/gallery/viz_komunala_vizitka.jpg"
+  },{
+    "id": 1,
+    "category": "des",
+    "client": "Fotoklub Črnomelj",
+    "title": "Plakat",
+    "image": "assets/images/gallery/des_arhitektura.jpg"
   }
 ]
