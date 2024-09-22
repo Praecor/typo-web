@@ -1,154 +1,228 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    // Constants
-    const FLIP_DURATION = 5000;
-    const TYPING_SPEED = 100;
-    const TYPING_DELAY = 1000;
-    const TYPING_FINISH_DELAY = 700;
+document.addEventListener( 'DOMContentLoaded', async () => {
+    /*==================== Constants ====================*/
+    const FLIP_DURATION = 3000; // Duration (ms) for card flip animation
+    const TYPING_SPEED = 100; // Typing speed (ms) per character
+    const TYPING_DELAY = 1000; // Initial delay (ms) before typing starts
+    const TYPING_FINISH_DELAY = 700; // Delay (ms) after typing finishes
 
-    // DOM Elements
-    const galleryContainer = document.getElementById('gallery-container');
-    const buttons = document.querySelectorAll('.gallery-buttons button');
-    const floatingButton = document.getElementById('floating-button');
-    const infoPanel = document.getElementById('info-panel');
-    const typedTagline = document.getElementById("typed-tagline");
+    /*==================== DOM Elements ====================*/
+    const galleryContainer = document.getElementById( 'gallery-container' );
+    const filterButtons = document.querySelectorAll( '.gallery-buttons button' );
+    const floatingButton = document.getElementById( 'floating-button' );
+    const infoPanel = document.getElementById( 'info-panel' );
+    const typedTagline = document.getElementById( 'typed-tagline' );
 
-    // State
+    /*==================== State ====================*/
     let galleryItems = [];
-    const colors = ['primary', 'secondary', 'accent', 'anthracite'];
-    let colorIndex = 0;
+    const colorClasses = [ 'primary', 'secondary', 'accent', 'anthracite', 'blue' ];
+    let currentColorIndex = 0;
 
-    // Functions
-    const shuffleColors = (array) => {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
+    /*==================== Utility Functions ====================*/
+
+    /**
+     * Shuffles an array in place
+     * @param {Array} array - The array to shuffle.
+     */
+    const shuffleArray = ( array ) => {
+        for ( let i = array.length - 1; i > 0; i-- ) {
+            const j = Math.floor( Math.random() * ( i + 1 ) );
+            [ array[ i ], array[ j ] ] = [ array[ j ], array[ i ] ];
         }
     };
 
-    const createCardElement = (item) => {
-        const card = document.createElement('div');
-        card.className = 'grid-item card';
-        card.setAttribute('tabindex', '0');
-        card.setAttribute('role', 'button');
-        card.setAttribute('aria-label', `Poglej podrobnosti projekta ${item.title}`);
-        card.dataset.category = item.category;
+    /**
+     * Creates and returns a DOM element with specified attributes and children.
+     * @param {string} tag - The HTML tag name.
+     * @param {Object} attributes - Key-value pairs of attributes.
+     * @param  {...any} children - Child nodes or strings.
+     * @returns {HTMLElement} The created DOM element.
+     */
+    const createElement = ( tag, attributes = {}, ...children ) => {
+        const element = document.createElement( tag );
+        for ( const [ attr, value ] of Object.entries( attributes ) ) {
+            if ( attr.startsWith( 'data-' ) ) {
+                element.dataset[ attr.slice( 5 ) ] = value;
+            } else if ( attr === 'className' ) {
+                element.className = value;
+            } else {
+                element.setAttribute( attr, value );
+            }
+        }
+        children.forEach( child => {
+            if ( typeof child === 'string' ) {
+                element.appendChild( document.createTextNode( child ) );
+            } else if ( child instanceof HTMLElement ) {
+                element.appendChild( child );
+            }
+        } );
+        return element;
+    };
 
-        const cardInner = document.createElement('div');
-        cardInner.className = 'card-inner';
+    /**
+     * Delays execution for a specified number of milliseconds.
+     * @param {number} ms - Milliseconds to sleep.
+     * @returns {Promise} A promise that resolves after the delay.
+     */
+    const sleep = ( ms ) => new Promise( resolve => setTimeout( resolve, ms ) );
 
-        const cardFront = document.createElement('div');
-        cardFront.className = 'card-front';
-        const img = document.createElement('img');
-        img.src = item.image;
-        img.alt = item.title;
-        img.loading = 'lazy';
-        cardFront.appendChild(img);
+    /*==================== Core Functions ====================*/
 
-        const cardBack = document.createElement('div');
-        cardBack.className = `card-back ${colors[colorIndex]}`;
-        const title = document.createElement('div');
-        title.className = 'title';
-        title.textContent = item.title;
-        const client = document.createElement('div');
-        client.className = 'client';
-        client.textContent = item.client;
-        cardBack.appendChild(title);
-        cardBack.appendChild(client);
+    /**
+     * Generates and appends gallery card elements based on provided items.
+     * @param {Array} items - Array of gallery item objects.
+     */
+    const generateGallery = ( items ) => {
+        galleryContainer.innerHTML = '';
+        currentColorIndex = 0;
 
-        cardInner.appendChild(cardFront);
-        cardInner.appendChild(cardBack);
-        card.appendChild(cardInner);
+        items.forEach( item => {
+            const card = createGalleryCard( item );
+            addCardEventListeners( card );
+            galleryContainer.appendChild( card );
+
+            currentColorIndex++;
+            if ( currentColorIndex >= colorClasses.length ) {
+                currentColorIndex = 0;
+                shuffleArray( colorClasses );
+            }
+        } );
+    };
+
+    /**
+     * Creates a gallery card element for a given item.
+     * @param {Object} item - The gallery item data.
+     * @returns {HTMLElement} The gallery card element.
+     */
+    const createGalleryCard = ( item ) => {
+        const cardFront = createElement( 'div', { className: 'card-front' },
+            createElement( 'img', { src: item.image, alt: item.title, loading: 'lazy' } )
+        );
+
+        const cardBack = createElement( 'div', { className: `card-back ${colorClasses[ currentColorIndex ]}` },
+            createElement( 'div', { className: 'title' }, item.title ),
+            createElement( 'div', { className: 'client' }, item.client )
+        );
+
+        const cardInner = createElement( 'div', { className: 'card-inner' }, cardFront, cardBack );
+
+        const card = createElement( 'div', {
+            className: 'grid-item card',
+            tabindex: '0',
+            role: 'button',
+            'aria-label': `Podrobnosti ${item.title}`,
+            'data-category': item.category
+        }, cardInner );
 
         return card;
     };
 
-    const addCardEventListeners = (card) => {
+    /**
+     * Adds event listeners to a gallery card for flip interaction.
+     * @param {HTMLElement} card - The gallery card element.
+     */
+    const addCardEventListeners = ( card ) => {
+        let flipTimer;
+
         const flipCard = () => {
-            if (!card.classList.contains('flipped')) {
-                card.classList.add('flipped');
-                setTimeout(() => {
-                    card.classList.remove('flipped');
-                }, FLIP_DURATION);
+            if ( card.classList.contains( 'flipped' ) ) {
+                // If card is flipped, turn it back immediately
+                card.classList.remove( 'flipped' );
+                clearTimeout( flipTimer );
+            } else {
+                // If card is not flipped, flip it and set a timer
+                card.classList.add( 'flipped' );
+                flipTimer = setTimeout( () => {
+                    card.classList.remove( 'flipped' );
+                }, FLIP_DURATION );
             }
         };
 
-        card.addEventListener('click', flipCard);
-        card.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter' || e.key === ' ') {
+        card.addEventListener( 'click', flipCard );
+        card.addEventListener( 'keydown', ( e ) => {
+            if ( e.key === 'Enter' || e.key === ' ' ) {
+                e.preventDefault();
                 flipCard();
             }
-        });
+        } );
     };
 
-    const generateGalleryItems = (items) => {
-        galleryContainer.innerHTML = '';
-        colorIndex = 0;
-        items.forEach(item => {
-            const card = createCardElement(item);
-            addCardEventListeners(card);
-            galleryContainer.appendChild(card);
-
-            colorIndex++;
-            if (colorIndex >= colors.length) {
-                colorIndex = 0;
-                shuffleColors(colors);
-            }
-        });
+    /**
+     * Filters gallery items based on category and regenerates the gallery.
+     * @param {string} category - The category to filter by.
+     */
+    const filterGallery = ( category ) => {
+        const filteredItems = galleryItems.filter( item => category === 'all' || item.category === category );
+        generateGallery( filteredItems );
     };
 
-    const filterGalleryItems = (category) => {
-        const filteredItems = galleryItems.filter(item => category === 'all' || item.category === category);
-        generateGalleryItems(filteredItems);
-    };
-
-    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-    const typeWriter = async (text) => {
-        for (let i = 0; i <= text.length; i++) {
-            typedTagline.innerHTML = text.substring(0, i) + '<span aria-hidden="true"></span>';
-            await sleep(TYPING_SPEED);
+    /**
+     * Types out a given text into the typedTagline element with a typewriter effect.
+     * @param {string} text - The text to type out.
+     */
+    const typeWriterEffect = async ( text ) => {
+        for ( let i = 0; i <= text.length; i++ ) {
+            typedTagline.innerHTML = `${text.substring( 0, i )}<span aria-hidden="true"></span>`;
+            await sleep( TYPING_SPEED );
         }
-        await sleep(TYPING_FINISH_DELAY);
+        await sleep( TYPING_FINISH_DELAY );
     };
 
-    const startTyping = async () => {
+    /**
+     * Initiates the typewriter effect with the predefined tagline.
+     */
+    const startTypewriter = async () => {
         const tagline = "... igriv dizajn z domišljijo...";
-        await typeWriter(tagline);
+        await typeWriterEffect( tagline );
     };
 
-    // Event Listeners
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            buttons.forEach(btn => btn.classList.remove('active'));
-            button.classList.add('active');
-            const filter = button.getAttribute('data-filter');
-            filterGalleryItems(filter);
-        });
-    });
-
+    /**
+     * Toggles the expansion state of the floating button and its info panel.
+     */
     const toggleFloatingButton = () => {
-        infoPanel.classList.toggle('active');
-        floatingButton.classList.toggle('expanded');
+        infoPanel.classList.toggle( 'active' );
+        floatingButton.classList.toggle( 'expanded' );
     };
 
-    floatingButton.addEventListener('click', toggleFloatingButton);
-    floatingButton.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
+    /*==================== Event Listeners ====================*/
+
+    // Handle filter button clicks
+    filterButtons.forEach( button => {
+        button.addEventListener( 'click', () => {
+            // Remove 'active' class from all buttons and add to the clicked one
+            filterButtons.forEach( btn => btn.classList.remove( 'active' ) );
+            button.classList.add( 'active' );
+
+            // Filter gallery items based on the selected category
+            const filterCategory = button.getAttribute( 'data-filter' );
+            filterGallery( filterCategory );
+        } );
+    } );
+
+    // Handle floating button interactions
+    floatingButton.addEventListener( 'click', toggleFloatingButton );
+    floatingButton.addEventListener( 'keydown', ( e ) => {
+        if ( e.key === 'Enter' || e.key === ' ' ) {
+            e.preventDefault();
             toggleFloatingButton();
         }
-    });
+    } );
 
-    // Initialization
+    /*==================== Initialization ====================*/
     try {
-        shuffleColors(colors);
+        // Shuffle color classes to randomize card backgrounds
+        shuffleArray( colorClasses );
 
-        const response = await fetch('assets/js/galleryData.json');
+        // Fetch gallery data and generate gallery
+        const response = await fetch( 'assets/js/galleryData.json' );
+        if ( !response.ok ) throw new Error( `HTTP error! Status: ${response.status}` );
         galleryItems = await response.json();
-        generateGalleryItems(galleryItems);
+        generateGallery( galleryItems );
 
-        await sleep(TYPING_DELAY);
-        await startTyping();
-    } catch (error) {
-        console.error('Napaka pri inicializaciji:', error);
+        // Start the typewriter effect after a delay
+        await sleep( TYPING_DELAY );
+        await startTypewriter();
+    } catch ( error ) {
+        console.error( 'Initialization Error:', error );
+        // Optionally, display an error message to the user
     }
-});
+} );
