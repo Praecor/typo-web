@@ -63,7 +63,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 80px; /* Height of the fixed navbar */
+  padding-top: 60px; /* Adjust this value based on the new header height */
   scroll-behavior: smooth;
 }
 
@@ -116,102 +116,6 @@ h4 {
   max-width: 100%;
   margin: 0 auto;
   padding: 0 var(--spacing-unit);
-}
-
-/*==================== Header ====================*/
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--color-background);
-  padding: var(--spacing-unit) 0;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
-}
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--color-primary-dark);
-}
-
-/*==================== Navigation ====================*/
-.navbar nav {
-  display: none;
-  flex-direction: column;
-  background-color: var(--color-background);
-  position: absolute;
-  top: 100%;
-  right: 0;
-  width: 400px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navbar nav a {
-  font-weight: 600;
-  padding: 0.5rem;
-  position: relative;
-}
-
-.navbar nav a::after {
-  content: '';
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: var(--color-primary-dark);
-  left: 0;
-  bottom: 0;
-  transition: width 0.3s;
-}
-
-.navbar nav a:hover,
-.navbar nav a:focus {
-  text-decoration: none;
-}
-
-.navbar nav a:hover::after,
-.navbar nav a:focus::after {
-  width: 100%;
-}
-
-.nav-toggle {
-  display: block;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.nav-toggle span {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: var(--color-primary-dark);
-  position: relative;
-}
-
-.nav-toggle span::before,
-.nav-toggle span::after {
-  content: '';
-  width: 25px;
-  height: 3px;
-  background-color: var(--color-primary-dark);
-  position: absolute;
-  left: 0;
-}
-
-.nav-toggle span::before {
-  top: -8px;
-}
-
-.nav-toggle span::after {
-  top: 8px;
 }
 
 /*==================== Main Content ====================*/
@@ -277,6 +181,12 @@ main {
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
+  outline: none; /* Remove default outline */
+}
+
+.gallery-buttons button:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 .gallery-buttons button.active,
@@ -303,43 +213,56 @@ main {
 
 .card {
   position: relative;
-  overflow: hidden;
-  border-radius: 8px;
+  perspective: 1000px;
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
+  height: 0;
+  padding-bottom: 100%;
+  border-radius: 8px;
 }
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card-back {
+.card-inner {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: var(--color-primary-dark);
-  color: white;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 8px;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--spacing-unit);
-  opacity: 0;
-  transition: opacity 0.3s;
-  text-align: center;
+  border-radius: 8px;
 }
 
-.card:hover .card-back {
-  opacity: 0.95;
+.card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.card-back {
+  background-color: var(--color-primary-dark);
+  color: white;
+  transform: rotateY(180deg);
+  padding: var(--spacing-unit);
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .card-back.primary {
@@ -354,8 +277,8 @@ main {
   background: linear-gradient(45deg, var(--color-accent-light), var(--color-accent), var(--color-accent-dark));
 }
 
-.card-back.gray {
-  background: linear-gradient(45deg, var(--color-background-light), var(--color-background), var(--color-background-dark));
+.card-back.anthracite {
+  background: linear-gradient(45deg, var(--color-text-dark), var(--color-text), var(--color-text-light));
 }
 
 .card-back .title {
@@ -370,6 +293,11 @@ main {
 /* About Section */
 #about {
   padding: 4rem 0;
+}
+
+.about-wrapper {
+  position: relative;
+  overflow: hidden;
 }
 
 .about-content {
@@ -433,53 +361,8 @@ main {
 
 /*==================== Floating Button and Info Panel ====================*/
 .floating-button {
-  position: fixed;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background-color: var(--color-primary-dark);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  z-index: 1001;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
 
-.floating-button:focus {
-  outline: 2px solid var(--color-accent);
-  outline-offset: 2px;
-}
 
-.info-panel {
-  position: fixed;
-  left: -250px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 220px;
-  background-color: var(--color-primary-dark);
-  color: white;
-  transition: left 0.3s ease;
-  z-index: 1000;
-  padding: 1rem;
-  border-top-right-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-
-.info-panel.active {
-  left: 60px;
-}
-
-.info-panel p {
-  margin-bottom: 0.5rem;
-}
-
-.info-panel a {
-  color: white;
 }
 
 /*==================== Footer ====================*/
@@ -518,6 +401,12 @@ footer .social-links a:hover {
 a:focus,
 button:focus,
 .floating-button:focus {
+  outline: none; /* Remove default outline */
+}
+
+a:focus-visible,
+button:focus-visible,
+.floating-button:focus-visible {
   outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
@@ -529,19 +418,6 @@ button:focus,
   /* Container */
   .container {
     max-width: 1200px;
-  }
-
-  /* Navigation */
-  .navbar nav {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    background-color: transparent;
-    box-shadow: none;
-  }
-
-  .nav-toggle {
-    display: none;
   }
 
   /* Welcome Section */

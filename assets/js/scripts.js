@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.gallery-buttons button');
     let galleryItems = [];
 
-    const colors = ['primary', 'secondary', 'accent', 'gray'];
+    const colors = ['primary', 'secondary', 'accent', 'anthracite'];
     let colorIndex = 0;
 
     function shuffleColors(array) {
@@ -26,36 +26,50 @@ document.addEventListener('DOMContentLoaded', () => {
             card.setAttribute('aria-label', `Poglej podrobnosti projekta ${item.title}`);
             card.dataset.category = item.category;
 
+            const cardInner = document.createElement('div');
+            cardInner.className = 'card-inner';
+
+            const cardFront = document.createElement('div');
+            cardFront.className = 'card-front';
             const img = document.createElement('img');
             img.src = item.image;
             img.alt = item.title;
             img.loading = 'lazy';
+            cardFront.appendChild(img);
 
             const cardBack = document.createElement('div');
             cardBack.className = `card-back ${colors[colorIndex]}`;
-
             const title = document.createElement('div');
             title.className = 'title';
             title.textContent = item.title;
-
             const client = document.createElement('div');
             client.className = 'client';
             client.textContent = item.client;
-
             cardBack.appendChild(title);
             cardBack.appendChild(client);
 
-            card.appendChild(img);
-            card.appendChild(cardBack);
+            cardInner.appendChild(cardFront);
+            cardInner.appendChild(cardBack);
+            card.appendChild(cardInner);
             galleryContainer.appendChild(card);
 
             card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
+                if (!card.classList.contains('flipped')) {
+                    card.classList.add('flipped');
+                    setTimeout(() => {
+                        card.classList.remove('flipped');
+                    }, 5000);
+                }
             });
 
             card.addEventListener('keydown', (e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                    card.classList.toggle('flipped');
+                    if (!card.classList.contains('flipped')) {
+                        card.classList.add('flipped');
+                        setTimeout(() => {
+                            card.classList.remove('flipped');
+                        }, 5000);
+                    }
                 }
             });
 
