@@ -115,4 +115,9 @@ document.addEventListener('DOMContentLoaded', () => {
             infoPanel.classList.toggle('active');
         }
     });
+
+    document.getElementById('floating-button').addEventListener('click', function() {
+        this.classList.toggle('expanded');
+    });
+
 });

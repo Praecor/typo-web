@@ -63,7 +63,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  padding-top: 60px; /* Adjust this value based on the new header height */
   scroll-behavior: smooth;
 }
 
@@ -135,7 +134,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .welcome-title-image,
@@ -148,6 +147,17 @@ main {
 .image-placeholder {
   width: 100%;
   max-width: 1200px;
+}
+
+.section-title-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  font-size: 3.5rem;
+  text-transform: lowercase;
+  margin-bottom: 3rem;
 }
 
 .image-placeholder img {
@@ -177,11 +187,12 @@ main {
   background-color: transparent;
   color: var(--color-text);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
-  outline: none; /* Remove default outline */
+  outline: none;
+  /* Remove default outline */
 }
 
 .gallery-buttons button:focus-visible {
@@ -220,6 +231,7 @@ main {
   padding-bottom: 100%;
   border-radius: 8px;
 }
+
 .card-inner {
   position: absolute;
   width: 100%;
@@ -234,7 +246,8 @@ main {
   transform: rotateY(180deg);
 }
 
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -360,9 +373,123 @@ main {
 }
 
 /*==================== Floating Button and Info Panel ====================*/
-.floating-button {
+#floating-button {
+  position: fixed;
+  left: 0;
+  top: 30vh;
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-secondary);
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
 
+#floating-button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: opacity 0.3s ease-in-out;
+}
 
+#floating-button.expanded {
+  width: 280px;
+  justify-content: flex-start;
+}
+
+#floating-button.expanded img {
+  opacity: 0;
+}
+
+.info-panel {
+  position: absolute;
+  left: 60px;
+  top: 0;
+  height: 100%;
+  width: 220px;
+  background-color: var(--color-secondary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  padding: 0 15px;
+}
+
+#floating-button.expanded .info-panel {
+  opacity: 1;
+}
+
+.info-panel p {
+  margin: 0 0 0.5rem 0;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.info-panel p:last-child {
+  margin-bottom: 0;
+}
+
+.info-panel .selectable,
+.info-panel .email-link {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.info-panel .selectable {
+  color: #ffffff;
+  user-select: text;
+  cursor: text;
+}
+
+.info-panel .email-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-panel .email-link:hover {
+  color: #f0f0f0;
+}
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  #floating-button {
+    width: 40px;
+    height: 40px;
+    left: 0px;
+  }
+
+  #floating-button img {
+    width: 25px;
+    height: 25px;
+  }
+
+  #floating-button.expanded {
+    width: 220px;
+  }
+
+  .info-panel {
+    left: 50px;
+    width: 170px;
+    padding: 0 10px;
+  }
+
+  .info-panel .selectable,
+  .info-panel .email-link {
+    font-size: 14px;
+  }
+
+  .info-panel p {
+    margin: 0;
+  }
 }
 
 /*==================== Footer ====================*/
@@ -401,7 +528,8 @@ footer .social-links a:hover {
 a:focus,
 button:focus,
 .floating-button:focus {
-  outline: none; /* Remove default outline */
+  outline: none;
+  /* Remove default outline */
 }
 
 a:focus-visible,
@@ -415,6 +543,7 @@ button:focus-visible,
 
 /* Medium screens (min-width: 768px) */
 @media (min-width: 768px) {
+
   /* Container */
   .container {
     max-width: 1200px;
@@ -449,6 +578,7 @@ button:focus-visible,
 
 /* Large screens (min-width: 1024px) */
 @media (min-width: 1024px) {
+
   /* Increase container max-width */
   .container {
     max-width: 1400px;
