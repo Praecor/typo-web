@@ -120,4 +120,24 @@ document.addEventListener('DOMContentLoaded', () => {
         this.classList.toggle('expanded');
     });
 
+    // Add the typing effect function
+    function typeWriter() {
+        const tagline = "... igriv dizajn z domišljijo ...";
+        const taglineElement = document.getElementById('typed-tagline');
+        let i = 0;
+
+        function type() {
+            if (i < tagline.length) {
+                taglineElement.innerHTML += tagline.charAt(i);
+                i++;
+                setTimeout(type, 100); // Adjust the typing speed here (in milliseconds)
+            }
+        }
+
+        type();
+    }
+
+    // Call the typeWriter function
+    typeWriter();
+
 });

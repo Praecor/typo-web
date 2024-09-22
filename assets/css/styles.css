@@ -112,9 +112,9 @@ h4 {
 
 /*==================== Layout ====================*/
 .container {
-  max-width: 100%;
+  max-width: 95vw;
   margin: 0 auto;
-  padding: 0 var(--spacing-unit);
+  padding: 0 5%;
 }
 
 /*==================== Main Content ====================*/
@@ -134,37 +134,33 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
 }
 
-.welcome-title-image,
-.welcome-main-image {
+.welcome-title-image {
   width: 100%;
-  max-width: 1000px;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.welcome-title-image img {
+  width: 100%;
   height: auto;
 }
 
-.image-placeholder {
+.welcome-text {
+  margin-bottom: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.welcome-city-image {
   width: 100%;
   max-width: 1200px;
 }
 
-.section-title-text {
-  font-family: 'Inter', sans-serif;
-  font-weight: 900;
-  font-size: 2rem;
-  color: var(--color-primary);
-  letter-spacing: 2px;
-  font-size: 3.5rem;
-  text-transform: lowercase;
-  margin-bottom: 3rem;
-}
-
-.image-placeholder img {
+.welcome-city-image img {
   width: 100%;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
+  height: auto;
 }
 
 /* Gallery Section */
@@ -192,7 +188,6 @@ main {
   text-transform: uppercase;
   position: relative;
   outline: none;
-  /* Remove default outline */
 }
 
 .gallery-buttons button:focus-visible {
@@ -260,7 +255,7 @@ main {
 }
 
 .card-front {
-  background-color: #bbb;
+  background-color: #a9a9a9;
   color: black;
 }
 
@@ -376,7 +371,7 @@ main {
 #floating-button {
   position: fixed;
   left: 0;
-  top: 30vh;
+  top: 20vh;
   width: 60px;
   height: 60px;
   background-color: var(--color-secondary);
@@ -384,7 +379,7 @@ main {
   border-bottom-right-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   z-index: 1000;
   overflow: hidden;
@@ -396,16 +391,12 @@ main {
   width: 40px;
   height: 40px;
   object-fit: contain;
-  transition: opacity 0.3s ease-in-out;
+  margin-left: 10px;
+  z-index: 2;
 }
 
 #floating-button.expanded {
   width: 280px;
-  justify-content: flex-start;
-}
-
-#floating-button.expanded img {
-  opacity: 0;
 }
 
 .info-panel {
@@ -428,8 +419,8 @@ main {
 }
 
 .info-panel p {
-  margin: 0 0 0.5rem 0;
-  text-align: left;
+  margin: 0 0 0.2rem 0;
+  text-align: right;
   line-height: 1.2;
 }
 
@@ -440,7 +431,7 @@ main {
 .info-panel .selectable,
 .info-panel .email-link {
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .info-panel .selectable {
@@ -470,6 +461,7 @@ main {
   #floating-button img {
     width: 25px;
     height: 25px;
+    margin-left: 7px;
   }
 
   #floating-button.expanded {
@@ -477,8 +469,8 @@ main {
   }
 
   .info-panel {
-    left: 50px;
-    width: 170px;
+    left: 40px;
+    width: 180px;
     padding: 0 10px;
   }
 
@@ -591,5 +583,113 @@ button:focus-visible,
 
   .welcome-main-image {
     max-width: 1200px;
+  }
+}
+
+/* Welcome Section */
+#welcome {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.welcome-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.welcome-title-image {
+  width: 350px;
+  max-width: 300px;
+  margin-bottom: 1rem;
+}
+
+.welcome-title-image img {
+  width: 100%;
+  height: auto;
+}
+
+.welcome-text {
+  margin-bottom: 2rem;
+}
+
+.welcome-tagline {
+  font-size: 2.5rem;
+  color: var(--color-text-dark);
+  margin-bottom: 2rem;
+}
+
+.welcome-subtitle {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+}
+
+.welcome-city-image {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.welcome-city-image img {
+  width: 100%;
+  height: auto;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .welcome-title-image {
+    max-width: 350px;
+  }
+
+  .welcome-tagline {
+    font-size: 3rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcome-title-image {
+    max-width: 400px;
+  }
+
+  .welcome-tagline {
+    font-size: 4rem;
+  }
+
+  .welcome-subtitle {
+    font-size: 3rem;
+    letter-spacing: 4px;
+  }
+}
+
+/* Adjusting welcome title image for mobile */
+@media (max-width: 767px) {
+  .welcome-title-image {
+    max-width: 200px; /* Smaller on mobile */
+  }
+}
+
+/* Making section titles bolder and larger with additional bottom margin */
+.section-title-text {
+  font-weight: 900;
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+  .section-title-text {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title-text {
+    font-size: 3.25rem;
   }
 }
