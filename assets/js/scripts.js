@@ -189,20 +189,16 @@ document.addEventListener( 'DOMContentLoaded', async () => {
      */
     const openLinkedInApp = ( event ) => {
         event.preventDefault();
-        const appUrl = "linkedin://in/sanjahadjur";
+        const appUrl = "linkedin://profile/sanjahadjur";
         const webUrl = "https://si.linkedin.com/in/sanjahadjur";
 
-        // Create an invisible iframe to attempt to open the app URL
-        const iframe = document.createElement( 'iframe' );
-        iframe.style.display = 'none';
-        iframe.src = appUrl;
-        document.body.appendChild( iframe );
+        // Try to open the app
+        window.location.href = appUrl;
 
-        // Fallback to web URL if the app is not installed
-        setTimeout( () => {
-            window.open( webUrl, "_blank" );
-            document.body.removeChild( iframe );
-        }, 500 );
+        // Fallback to web URL after a short delay
+        setTimeout(() => {
+            window.location.href = webUrl;
+        }, 500);
     };
 
     /*==================== Event Listeners ====================*/
@@ -230,7 +226,7 @@ document.addEventListener( 'DOMContentLoaded', async () => {
     } );
 
     // Add event listener to LinkedIn link
-    document.querySelector( 'a[href="https://si.linkedin.com/in/sanjahadjur"]' ).addEventListener( 'click', openLinkedInApp );
+    document.getElementById('linkedin-link').addEventListener('click', openLinkedInApp);
 
     /*==================== Initialization ====================*/
     try {
