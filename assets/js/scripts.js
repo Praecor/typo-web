@@ -183,6 +183,24 @@ document.addEventListener( 'DOMContentLoaded', async () => {
         floatingButton.classList.toggle( 'expanded' );
     };
 
+    /**
+     * Attempts to open the LinkedIn app if installed, otherwise falls back to the web URL.
+     * @param {Event} event - The click event.
+     */
+    const openLinkedInApp = ( event ) => {
+        event.preventDefault();
+        const appUrl = "linkedin://in/sanjahadjur";
+        const webUrl = "https://si.linkedin.com/in/sanjahadjur";
+
+        // Try to open the LinkedIn app
+        window.location = appUrl;
+
+        // Fallback to web URL if the app is not installed
+        setTimeout( () => {
+            window.open( webUrl, "_blank" );
+        }, 500 );
+    };
+
     /*==================== Event Listeners ====================*/
 
     // Handle filter button clicks
@@ -206,6 +224,9 @@ document.addEventListener( 'DOMContentLoaded', async () => {
             toggleFloatingButton();
         }
     } );
+
+    // Add event listener to LinkedIn link
+    document.querySelector( 'a[href="https://si.linkedin.com/in/sanjahadjur"]' ).addEventListener( 'click', openLinkedInApp );
 
     /*==================== Initialization ====================*/
     try {
