@@ -47,6 +47,18 @@ img {
   display: block;
 }
 
+a[href^="tel"] {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Prevent Safari from coloring phone numbers */
+span.selectable {
+  -webkit-text-fill-color: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 /*==================== Base Styles ====================*/
 body {
   font-family: 'Inter', sans-serif;
