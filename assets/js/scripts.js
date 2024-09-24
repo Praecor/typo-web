@@ -192,12 +192,16 @@ document.addEventListener( 'DOMContentLoaded', async () => {
         const appUrl = "linkedin://in/sanjahadjur";
         const webUrl = "https://si.linkedin.com/in/sanjahadjur";
 
-        // Try to open the LinkedIn app
-        window.location = appUrl;
+        // Create an invisible iframe to attempt to open the app URL
+        const iframe = document.createElement( 'iframe' );
+        iframe.style.display = 'none';
+        iframe.src = appUrl;
+        document.body.appendChild( iframe );
 
         // Fallback to web URL if the app is not installed
         setTimeout( () => {
             window.open( webUrl, "_blank" );
+            document.body.removeChild( iframe );
         }, 500 );
     };
 
@@ -244,6 +248,5 @@ document.addEventListener( 'DOMContentLoaded', async () => {
         await startTypewriter();
     } catch ( error ) {
         console.error( 'Initialization Error:', error );
-        // Optionally, display an error message to the user
     }
 } );
