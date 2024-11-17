@@ -316,23 +316,33 @@ main {
 }
 
 .card-back.primary {
-  background: linear-gradient(45deg, rgba(114, 204, 187, 0.8), rgba(75, 191, 167, 0.8), rgba(49, 154, 138, 0.8));
+  background-color: var(--color-primary);
+  background-image: linear-gradient(45deg, rgba(114, 204, 187, 1), rgba(75, 191, 167, 1), rgba(49, 154, 138, 1));
+  background-blend-mode: normal;
 }
 
 .card-back.secondary {
-  background: linear-gradient(45deg, rgba(220, 119, 78, 0.8), rgba(210, 86, 39, 0.8), rgba(186, 66, 18, 0.8));
+  background-color: var(--color-secondary);
+  background-image: linear-gradient(45deg, rgba(220, 119, 78, 1), rgba(210, 86, 39, 1), rgba(186, 66, 18, 1));
+  background-blend-mode: normal;
 }
 
 .card-back.accent {
-  background: linear-gradient(45deg, rgba(242, 199, 77, 0.8), rgba(240, 185, 37, 0.8), rgba(217, 159, 30, 0.8));
+  background-color: var(--color-accent);
+  background-image: linear-gradient(45deg, rgba(242, 199, 77, 1), rgba(240, 185, 37, 1), rgba(217, 159, 30, 1));
+  background-blend-mode: normal;
 }
 
 .card-back.anthracite {
-  background: linear-gradient(45deg, rgba(77, 77, 77, 0.8), rgba(103, 104, 104, 0.8), rgba(129, 129, 129, 0.8));
+  background-color: var(--color-text);
+  background-image: linear-gradient(45deg, rgba(77, 77, 77, 1), rgba(103, 104, 104, 1), rgba(129, 129, 129, 1));
+  background-blend-mode: normal;
 }
 
 .card-back.blue {
-  background: linear-gradient(45deg, rgba(108, 162, 165, 0.8), rgba(117, 186, 189, 0.8), rgba(140, 199, 201, 0.8));
+  background-color: var(--color-blue);
+  background-image: linear-gradient(45deg, rgba(108, 162, 165, 1), rgba(117, 186, 189, 1), rgba(140, 199, 201, 1));
+  background-blend-mode: normal;
 }
 
 /* About Section */
