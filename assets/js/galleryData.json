@@ -224,11 +224,11 @@
     "image": "assets/images/gallery/des_omnibus_ilustracija.jpg"
   },
   {
-    "id": 34,
+    "id": 41,
     "category": "des",
-    "client": "Vina Kordič",
-    "title": "etiketa",
-    "image": "assets/images/gallery/des_vina_kordic.jpg"
+    "client": "Čebelarstvo Muller d.o.o. (izvedba: Nevenka Adlešič - Vireo)",
+    "title": "Lesena tabla",
+    "image": "assets/images/gallery/des-beetox.jpg"
   },
   {
     "id": 35,
@@ -271,5 +271,12 @@
     "client": "Fotoklub Črnomelj",
     "title": "Plakat",
     "image": "assets/images/gallery/des_arhitektura.jpg"
+  },
+  {
+    "id": 34,
+    "category": "des",
+    "client": "Vina Kordič",
+    "title": "etiketa",
+    "image": "assets/images/gallery/des_vina_kordic.jpg"
   }
 ]
