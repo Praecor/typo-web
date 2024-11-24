@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "title": "Predavanje z delavnico: VIZUALNA PISMENOST + CANVA",
+    "content": "V prvem delu pogledamo, zakaj je vizualna pismenost pomembna in kateri so gradniki vizualne 'abecede.' Osvojimo pomembne pojme in se že v prvem delu pripravljamo na delavnico oblikovanja predlog v Canvi. Ob končanem izobraževanju imamo postavljene temelje za hitrejše in bolj učinkovito delo.",
+    "description": "Delavnica je namenjena strokovnjakom v izobraževanju in organizacijam v javnem interesu, s ciljem izboljšati vizualno sporočilnost.",
+    "hashtags": ["#vizualnapismenost", "#graficnooblikovanje","#Canva"],
+    "button": "Rezervacija termina",
+    "button-color": "primary",
+    "image": "assets/images/projects/project-predavateljica.png",
+    "url": "mailto:sanja.hadjur@typo.si"
+  },
+  {
+    "id": 2,
+    "title": "Priročnik: VIZUALNA PISMENOST NA TRGU",
+    "content": "Priročnik je namenjen vsem podjetnikom in podjetnicam, kateri primarno po poklicu niso grafični oblikovalci, a se pri svojemu delu srečujejo s pojmi, kot so celostna grafična podoba, oblikovanje in branding. Knjiga podaja smernice, kako s pomočjo celostne vizualne podobe doseči cilje v prodaji ali večji prepoznavnosti na trgu in vas skozi vprašanja vodi do odgovorov, kako razumeti svojo celostno podobo.",
+    "description": "Zbiranje prednaročil, izdaja predvidena marec 2025.",
+    "hashtags": ["#vizualnapismenost", "#graficnooblikovanje", "#Canva", "#vizualnosporocanje", "#celostnagraficnapodoba", "#vizija", "#vrednote", "#poslanstvo", "#ciljnapublika"],
+    "button": "Prednaročila",
+    "button-color": "secondary",
+    "image": "assets/images/projects/project-pisateljica.png",
+    "url": "mailto:sanja.hadjur@typo.si"
+  }
+]
