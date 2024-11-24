@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    console.log('Project script loaded');
-
     const projectsContainer = document.getElementById('projects-container');
 
     /*==================== Utility Functions ====================*/
